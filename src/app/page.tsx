@@ -6,6 +6,7 @@ export default async function Home() {
       accept: "application/json",
       Authorization: `Bearer ${process.env.STRAPI_TOKEN}`,
     },
+    next: { revalidate: 10 },
   });
   const { data } = await response.json();
   console.info("JB | Home | data:", data, response.status);
