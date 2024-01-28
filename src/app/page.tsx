@@ -9,6 +9,13 @@ export default async function Home() {
     next: { revalidate: 300 },
   });
   const data = await response.json();
+  console.info(
+    "JB | Home | data:",
+    process.env.STRAPI_URL,
+    process.env.STRAPI_TOKEN,
+    data,
+    response.status
+  );
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
@@ -17,7 +24,6 @@ export default async function Home() {
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
-        <code className="font-mono font-bold">{response.status}</code>
         <code className="font-mono font-bold">{JSON.stringify(data)}</code>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
           <a
