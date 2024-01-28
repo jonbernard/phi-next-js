@@ -8,6 +8,7 @@ export default async function Home() {
     },
   });
   const { data } = await response.json();
+  console.info("JB | Home | data:", data, response.status);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
